@@ -70,7 +70,8 @@ public class Game {
             }
         }
 
-        scanner.close();
+        restart();
+        
     }
 
     private char[][] getFields() {
@@ -104,13 +105,15 @@ public class Game {
 
     public void restart() {
         System.out.print("Deseja jogar de novo?(S/N): ");
-        String resposta = scanner.nextLine();
+        scanner.nextLine();
+        String resposta = scanner.next();
         if (resposta.equalsIgnoreCase("S")) {
             board.empty();
             gameOver = false;
             moves = 0;
             start();
         } else {
+            scanner.close();
             System.out.println("Obrigado por jogar!");
         }
     }
